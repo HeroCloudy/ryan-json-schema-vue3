@@ -1,0 +1,43 @@
+{
+  "name": "@ryan-json-schema-vue3/table",
+  "version": "1.0.0",
+  "description": "基于 vue3 + element plus json schema 列表",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.es.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.umd.js",
+      "import": "./dist/index.es.js",
+      "types": "./dist/index.es.d.ts"
+    }
+  },
+  "files": [
+    "./dist",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ryan-json-schema-vue3/utils": "workspace:^",
+    "vue": "^3.3.11",
+    "element-plus": "^2.4.4",
+    "vxe-table": "^4.5.17",
+    "xe-utils": "^3.5.14"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.11",
+    "element-plus": "^2.4.4",
+    "vxe-table": "^4.5.17",
+    "xe-utils": "^3.5.14"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
