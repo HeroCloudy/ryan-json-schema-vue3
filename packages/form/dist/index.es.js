@@ -1,6 +1,6 @@
-import { createVNode as a, mergeProps as m, isVNode as S, defineComponent as I, ref as $, reactive as x, watchEffect as te, computed as w, resolveComponent as L, createTextVNode as _ } from "vue";
-import { ElRadioGroup as re, ElRadio as ne, ElSelect as oe, ElOption as se, ElDatePicker as ie, ElInput as le, ElInputNumber as ce, ElSwitch as ae, ElCheckboxGroup as ue, ElCheckbox as de, ElCol as me, ElFormItem as pe, ElForm as fe, ElRow as he } from "element-plus";
-const H = "ui:hidden", be = "ui:disabled", ye = "ui:width", R = "ui:options", y = "ui:widget", G = "ui:column";
+import { createVNode as a, mergeProps as m, isVNode as S, defineComponent as I, ref as T, reactive as _, watchEffect as ne, computed as w, resolveComponent as L, createTextVNode as M } from "vue";
+import { ElRadioGroup as oe, ElRadio as se, ElSelect as ie, ElOption as le, ElDatePicker as ce, ElInput as ae, ElInputNumber as ue, ElSwitch as de, ElCheckboxGroup as me, ElCheckbox as pe, ElCol as fe, ElFormItem as he, ElForm as be, ElRow as ye } from "element-plus";
+const H = "ui:hidden", Ee = "ui:disabled", Oe = "ui:width", R = "ui:options", y = "ui:widget", G = "ui:column";
 var p = /* @__PURE__ */ ((e) => (e.SELECT = "select", e.RADIO = "radio", e.CHECKBOX = "checkbox", e.SWITCH = "switch", e.INPUT = "input", e.TEXTAREA = "textarea", e))(p || {}), O = /* @__PURE__ */ ((e) => (e.STRING = "string", e.NUMBER = "number", e.ARRAY = "array", e.BOOLEAN = "boolean", e))(O || {});
 const J = {
   schema: {
@@ -12,7 +12,7 @@ const J = {
     required: !1,
     default: () => ({})
   }
-}, Ee = (e, t) => {
+}, Se = (e, t) => {
   if (t == null)
     return e;
   if (t.length === 0)
@@ -36,10 +36,10 @@ class E {
     const t = {
       ...this.uiSchema[R] || {}
     };
-    return t.disabled = this.uiSchema[be] === !0, t.placeholder = t.placeholder || this.schema.description, t;
+    return t.disabled = this.uiSchema[Ee] === !0, t.placeholder = t.placeholder || this.schema.description, t;
   }
 }
-function Oe(e) {
+function ge(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !S(e);
 }
 class K extends E {
@@ -48,10 +48,10 @@ class K extends E {
     const {
       oneOf: n
     } = this.schema;
-    return a(re, m(this.commonProps, {
+    return a(oe, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (r) => this.model[this.prop] = r
-    }), Oe(t = n.map((r) => a(ne, {
+    }), ge(t = n.map((r) => a(se, {
       label: r.const
     }, {
       default: () => [r.title]
@@ -60,17 +60,17 @@ class K extends E {
     });
   }
 }
-function Se(e) {
+function Re(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !S(e);
 }
-class T extends E {
+class q extends E {
   render() {
     let t;
     const {
       oneOf: n,
       anyOf: r
     } = this.schema, o = !!r, s = n || r || [];
-    return a(oe, m(this.commonProps, {
+    return a(ie, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (l) => this.model[this.prop] = l,
       style: {
@@ -78,7 +78,7 @@ class T extends E {
       },
       multiple: o,
       clearable: !0
-    }), Se(t = s.map((l) => a(se, {
+    }), Re(t = s.map((l) => a(le, {
       label: l.title,
       value: l.const
     }, null))) ? t : {
@@ -94,7 +94,7 @@ class X extends E {
     const {
       type: n
     } = this.schema;
-    return n === O.ARRAY && (t += "range", this.commonProps["range-separator"] = this.commonProps["range-separator"] || "-"), a(ie, m(this.commonProps, {
+    return n === O.ARRAY && (t += "range", this.commonProps["range-separator"] = this.commonProps["range-separator"] || "-"), a(ce, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (r) => this.model[this.prop] = r,
       type: t,
@@ -102,10 +102,10 @@ class X extends E {
     }), null);
   }
 }
-class ge extends E {
+class je extends E {
   render() {
     const t = this.uiSchema[y] === "textarea" ? "textarea" : "text";
-    return a(le, m(this.commonProps, {
+    return a(ae, m(this.commonProps, {
       type: t,
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (n) => this.model[this.prop] = n,
@@ -113,9 +113,9 @@ class ge extends E {
     }), null);
   }
 }
-class Re extends E {
+class Pe extends E {
   render() {
-    return a(ce, m({
+    return a(ue, m({
       style: {
         width: "100%"
       }
@@ -127,25 +127,25 @@ class Re extends E {
 }
 class Y extends E {
   render() {
-    return a(ae, m(this.commonProps, {
+    return a(de, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (t) => this.model[this.prop] = t
     }), null);
   }
 }
-function je(e) {
+function Ce(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !S(e);
 }
-class Pe extends E {
+class ve extends E {
   render() {
     let t;
     const {
       anyOf: n = []
     } = this.schema;
-    return a(ue, m(this.commonProps, {
+    return a(me, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (r) => this.model[this.prop] = r
-    }), je(t = n.map((r) => a(de, {
+    }), Ce(t = n.map((r) => a(pe, {
       label: r.const
     }, {
       default: () => [r.title]
@@ -154,10 +154,10 @@ class Pe extends E {
     });
   }
 }
-function Ce(e) {
+function we(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !S(e);
 }
-const ve = (e, t = {}, n, r, o, s) => {
+const Ie = (e, t = {}, n, r, o, s) => {
   let l;
   const c = e.prop;
   if (t[H])
@@ -183,28 +183,28 @@ const ve = (e, t = {}, n, r, o, s) => {
       return () => r[c](n);
     switch (e.type) {
       case O.STRING:
-        return M(d);
+        return B(d);
       case O.NUMBER:
-        return we(d);
-      case O.BOOLEAN:
-        return Ie(d);
-      case O.ARRAY:
         return Ae(d);
+      case O.BOOLEAN:
+        return Ne(d);
+      case O.ARRAY:
+        return Ve(d);
     }
-    return M(d);
+    return B(d);
   }, h = t[G] || 1, g = (t[R] || {}).labelWidth || "auto";
-  return a(me, {
+  return a(fe, {
     span: o * h
   }, {
-    default: () => [a(pe, {
+    default: () => [a(he, {
       label: e.description,
       prop: c,
       "label-width": g
-    }, Ce(l = f()) ? l : {
+    }, we(l = f()) ? l : {
       default: () => [l]
     })]
   });
-}, q = (e = "不支持该类型") => a("div", null, [e]), M = (e) => {
+}, U = (e = "不支持该类型") => a("div", null, [e]), B = (e) => {
   const {
     model: t,
     item: n,
@@ -212,17 +212,17 @@ const ve = (e, t = {}, n, r, o, s) => {
   } = e;
   if (n.oneOf) {
     const o = r[y] || p.SELECT;
-    return o === p.RADIO ? new K(n, r, t).render() : o === p.SELECT ? new T(n, r, t).render() : q();
+    return o === p.RADIO ? new K(n, r, t).render() : o === p.SELECT ? new q(n, r, t).render() : U();
   }
-  return n.format && (n.format === "date" || n.format === "datetime") ? new X(n, r, t).render() : new ge(n, r, t).render();
-}, we = (e) => {
+  return n.format && (n.format === "date" || n.format === "datetime") ? new X(n, r, t).render() : new je(n, r, t).render();
+}, Ae = (e) => {
   const {
     model: t,
     item: n,
     uiItem: r
   } = e;
-  return r && r[y] === p.SWITCH ? new Y(n, r, t).render() : new Re(n, r, t).render();
-}, Ie = (e) => {
+  return r && r[y] === p.SWITCH ? new Y(n, r, t).render() : new Pe(n, r, t).render();
+}, Ne = (e) => {
   const {
     model: t,
     item: n,
@@ -234,8 +234,8 @@ const ve = (e, t = {}, n, r, o, s) => {
     const: !1,
     title: "否"
   }];
-  return n.oneOf = n.oneOf ? n.oneOf : s, o === p.SWITCH ? new Y(n, r, t).render() : o === p.RADIO ? new K(n, r, t).render() : o === p.SELECT ? new T(n, r, t).render() : q();
-}, Ae = (e) => {
+  return n.oneOf = n.oneOf ? n.oneOf : s, o === p.SWITCH ? new Y(n, r, t).render() : o === p.RADIO ? new K(n, r, t).render() : o === p.SELECT ? new q(n, r, t).render() : U();
+}, Ve = (e) => {
   const {
     model: t,
     item: n,
@@ -244,25 +244,25 @@ const ve = (e, t = {}, n, r, o, s) => {
   if (n.anyOf) {
     const o = r[y] || "select";
     if (o === p.SELECT)
-      return new T(n, r, t).render();
+      return new q(n, r, t).render();
     if (o === p.CHECKBOX)
-      return new Pe(n, r, t).render();
+      return new ve(n, r, t).render();
   }
-  return n.format && (n.format === "date" || n.format === "datetime") ? new X(n, r, t).render() : q();
-}, Ne = (e = {}, t) => {
+  return n.format && (n.format === "date" || n.format === "datetime") ? new X(n, r, t).render() : U();
+}, De = (e = {}, t) => {
   const n = { ...e }, { properties: r } = t, { required: o = [] } = t;
   return o.forEach((s) => {
     if (r[s]) {
       const l = r[s].prop || s;
-      B(n, l, F(r[s].description));
+      F(n, l, W(r[s].description));
     }
   }), Object.keys(r).forEach((s) => {
     const l = r[s], c = l.prop || s;
-    l.required && o.findIndex((u) => u === c) < 0 && B(n, c, F(r[s].description));
+    l.required && o.findIndex((u) => u === c) < 0 && F(n, c, W(r[s].description));
   }), n;
-}, B = (e, t, n) => {
+}, F = (e, t, n) => {
   e[t] || (e[t] = []), e[t].push(n);
-}, F = (e) => ({ required: !0, message: `${e}不能为空`, trigger: "blur" }), z = {
+}, W = (e) => ({ required: !0, message: `${e}不能为空`, trigger: "blur" }), z = {
   ...J,
   model: {
     type: Object,
@@ -311,7 +311,7 @@ const ve = (e, t = {}, n, r, o, s) => {
     type: Array,
     required: !1
   }
-}, Ve = {
+}, Te = {
   ...Q,
   ...k,
   readMode: {
@@ -320,15 +320,15 @@ const ve = (e, t = {}, n, r, o, s) => {
     default: !1
   }
 };
-function De(e) {
+function qe(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !S(e);
 }
-const W = "ry-json-form", j = /* @__PURE__ */ I({
-  name: W,
+const $ = "ry-json-form", j = /* @__PURE__ */ I({
+  name: $,
   props: z,
   setup(e, t) {
-    const n = $();
-    let r = x(e.model);
+    const n = T();
+    let r = _(e.model);
     const o = () => {
       n.value && n.value.resetFields();
     }, s = (i) => {
@@ -339,8 +339,8 @@ const W = "ry-json-form", j = /* @__PURE__ */ I({
       validate: s
     });
     let l = 24 / e.column;
-    te(() => {
-      r = x(e.model), l = 24 / e.column;
+    ne(() => {
+      r = _(e.model), l = 24 / e.column;
     });
     const d = {
       change: (i, b) => {
@@ -357,7 +357,7 @@ const W = "ry-json-form", j = /* @__PURE__ */ I({
       return Object.keys(i).forEach((A) => {
         const N = i[A];
         N.prop = N.prop || A;
-        const U = e.uiSchema[A], D = ve(N, U, e.model, t.slots, l, d);
+        const x = e.uiSchema[A], D = Ie(N, x, e.model, t.slots, l, d);
         D && b.push(D);
       }), b;
     }, h = w(() => {
@@ -365,7 +365,7 @@ const W = "ry-json-form", j = /* @__PURE__ */ I({
         schema: i,
         rules: b
       } = e;
-      return Ne(b, i);
+      return De(b, i);
     }), g = (i) => {
       i && (i.stopPropagation && i.stopPropagation(), i.preventDefault && i.preventDefault());
     };
@@ -375,22 +375,22 @@ const W = "ry-json-form", j = /* @__PURE__ */ I({
         schema: b,
         uiSchema: A,
         model: N,
-        column: U,
+        column: x,
         rules: D,
-        ...ee
+        ...re
       } = e;
       return a("div", {
-        className: W
-      }, [a(fe, m(ee, {
+        className: $
+      }, [a(be, m(re, {
         ref: n,
         model: r,
         rules: h.value,
         labelWidth: "auto",
         onSubmit: g
       }), {
-        default: () => [a(he, {
+        default: () => [a(ye, {
           gutter: 20
-        }, De(i = f()) ? i : {
+        }, qe(i = f()) ? i : {
           default: () => [i]
         })]
       })]);
@@ -400,7 +400,7 @@ const W = "ry-json-form", j = /* @__PURE__ */ I({
 j.install = (e) => {
   e.component(j.name, j);
 };
-const Te = (e) => ({
+const ee = (e) => ({
   reset: () => {
     const r = e();
     r && r.reset();
@@ -409,7 +409,7 @@ const Te = (e) => ({
     const o = e();
     o && o.validate(r);
   }
-}), qe = (e, t) => ({
+}), te = (e, t) => ({
   onDataChange: (o, s) => {
     e.emit("data-change", o, s, t);
   },
@@ -420,10 +420,10 @@ const Te = (e) => ({
   name: Ue,
   props: Q,
   setup(e, t) {
-    const n = $(), {
+    const n = T(), {
       reset: r,
       validate: o
-    } = Te(() => n.value);
+    } = ee(() => n.value);
     t.expose({
       reset: r,
       validate: o
@@ -448,7 +448,7 @@ const Te = (e) => ({
       ref: n
     }, l.value, {
       schema: s.value
-    }, qe(t, e.model)), t.slots);
+    }, te(t, e.model)), t.slots);
   }
 });
 P.install = (e) => {
@@ -475,7 +475,7 @@ const xe = (e, t = {}, n, r) => {
   }, l = t[R] || {};
   return a(L("el-descriptions-item"), m(l, {
     span: t[G] || 1,
-    width: t[ye] || 100,
+    width: t[Oe] || 100,
     label: e.description || ""
   }), {
     default: () => [r[o] ? r[o](n) : s()]
@@ -520,7 +520,7 @@ const Be = "ry-pro-description", v = /* @__PURE__ */ I({
   name: Be,
   props: k,
   setup(e, t) {
-    const n = t.attrs, r = w(() => Ee(e.schema, e.fields)), o = w(() => {
+    const n = t.attrs, r = w(() => Se(e.schema, e.fields)), o = w(() => {
       const s = {
         ...e
       };
@@ -536,21 +536,32 @@ v.install = (e) => {
 };
 const Fe = "ry-json-form-description", V = /* @__PURE__ */ I({
   name: Fe,
-  props: Ve,
-  setup(e, {
-    slots: t
-  }) {
+  props: Te,
+  setup(e, t) {
+    const n = T();
+    if (n.value) {
+      const {
+        reset: r,
+        validate: o
+      } = ee(() => n.value);
+      t.expose({
+        reset: r,
+        validate: o
+      });
+    }
     return () => {
       const {
-        readMode: n,
-        ...r
+        readMode: r,
+        ...o
       } = e;
-      return n ? a(v, r, {
-        default: () => [_("description")],
-        ...t
-      }) : a(P, r, {
-        default: () => [_("form")],
-        ...t
+      return r ? a(v, o, {
+        default: () => [M("description")],
+        ...t.slots
+      }) : a(P, m({
+        ref: n
+      }, o, te(t, e.model)), {
+        default: () => [M("form")],
+        ...t.slots
       });
     };
   }
@@ -573,11 +584,11 @@ export {
   P as ProForm,
   Z as basicDescriptionProps,
   z as basicFormProps,
-  qe as bindEvent,
-  Te as bindMethod,
+  te as bindEvent,
+  ee as bindMethod,
   Ge as default,
   $e as install,
-  Ve as jsonFormDescriptionProps,
+  Te as jsonFormDescriptionProps,
   k as proDescriptionProps,
   Q as proFormProps
 };
