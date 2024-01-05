@@ -94,6 +94,8 @@ declare const _default: {
 };
 export default _default;
 
+export declare const DEFAULT_ROW_BTN_LIST: RowBtn[];
+
 export declare const install: (app: App) => void;
 
 export declare const JsonTable: DefineComponent<{

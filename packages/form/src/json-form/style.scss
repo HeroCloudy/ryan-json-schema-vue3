@@ -1,7 +1,8 @@
 .ry-json-form {
-  @apply w-full overflow-hidden;
+  width: 100%;
+  overflow: hidden;
 
   .el-row {
-    @apply w-full;
+    width: 100%;
   }
 }
