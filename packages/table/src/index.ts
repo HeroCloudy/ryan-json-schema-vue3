@@ -19,3 +19,4 @@ export { install, JsonTable, ProTable }
 export type * from './common/types'
 export * from './common/props'
 export * from './common/bind'
+export * from './common/constants'

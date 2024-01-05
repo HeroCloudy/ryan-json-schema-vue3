@@ -6,7 +6,7 @@
   "author": {
     "name": "youyacoder",
     "email": "hero_cloudy@126.com",
-    "url": ""
+    "url": "https://github.com/HeroCloudy/ryan-json-schema-vue3"
   },
   "keywords": [
     "vue3",
@@ -14,6 +14,11 @@
     "vite",
     "element plus",
     "json schema",
+    "json schema form",
+    "json schema table",
+    "json schema utils",
+    "json",
+    "vxe-table",
     "组件库",
     "企业级",
     "后台管理",
@@ -21,7 +26,7 @@
     "monorepo"
   ],
   "repository": {
-    "url": ""
+    "url": "https://github.com/HeroCloudy/ryan-json-schema-vue3"
   },
   "scripts": {
     "dev": "vite",

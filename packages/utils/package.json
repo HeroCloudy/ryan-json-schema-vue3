@@ -20,8 +20,29 @@
     "package.json",
     "README.md"
   ],
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "youyacoder",
+    "email": "hero_cloudy@126.com",
+    "url": "https://github.com/HeroCloudy/ryan-json-schema-vue3"
+  },
+  "keywords": [
+    "vue3",
+    "typescript",
+    "vite",
+    "element plus",
+    "json schema",
+    "json schema utils",
+    "json",
+    "vxe-table",
+    "组件库",
+    "企业级",
+    "后台管理",
+    "pnpm",
+    "monorepo"
+  ],
+  "repository": {
+    "url": "https://github.com/HeroCloudy/ryan-json-schema-vue3"
+  },
   "license": "ISC",
   "devDependencies": {
     "vite-plugin-dts": "^3.7.0",
