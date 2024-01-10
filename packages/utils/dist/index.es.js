@@ -37,31 +37,38 @@ const D = {
       ...t,
       properties: {}
     };
-  const n = {};
+  const c = {};
   return e.forEach((r) => {
-    t.properties[r] && (n[r] = t.properties[r]);
+    t.properties[r] && (c[r] = t.properties[r]);
   }), {
     ...t,
-    properties: n
+    properties: c
   };
 }, S = (t, e) => {
   if (!t || !t.properties)
     return {};
-  const n = f(t, e), r = {}, { properties: u } = n;
-  return Object.keys(u).forEach((o) => {
-    const c = u[o], i = c.prop || o;
-    r[i] = l(c);
+  const c = f(t, e), r = {}, { properties: n } = c;
+  return Object.keys(n).forEach((u) => {
+    const o = n[u], i = o.prop || u;
+    r[i] = l(o);
   }), r;
-}, A = (t, e) => ({
+}, h = (t, e) => ({
   const: e,
   title: t
-}), N = (t, e, n = []) => {
-  const r = {};
-  for (const u of t)
-    r[u] = {}, n.includes(u) || (r[u] = {
+}), A = (t, e, c, r = []) => {
+  const n = {};
+  for (let u = 0; u < t.length; u++) {
+    const o = t[u];
+    r.includes(o) || (n[o] = {
       "ui:width": e
+    }), u === 0 && c && (n[o] = {
+      ...n[o],
+      "ui:options": {
+        fixed: "left"
+      }
     });
-  return r;
+  }
+  return n;
 };
 export {
   s as SchemaType,
@@ -73,9 +80,9 @@ export {
   b as UI_WIDTH,
   a as UiWidgets,
   D as basicSchemaProps,
-  A as buildOfItem,
+  h as buildOfItem,
   f as buildSchema,
   S as getSchemaDefaultModel,
   l as getSchemaPropDefaultValue,
-  N as getTableDefaultUiSchema
+  A as getTableDefaultUiSchema
 };
