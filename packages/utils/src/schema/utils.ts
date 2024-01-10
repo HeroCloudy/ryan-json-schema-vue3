@@ -1,4 +1,4 @@
-import type { OfItem, Schema, SchemaItem, UiSchema, UiSchemaItem } from './types'
+import type { OfItem, Schema, SchemaItem, UiSchema } from './types'
 
 /**
  * 获取 SchemaProp 的默认值

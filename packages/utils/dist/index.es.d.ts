@@ -85,7 +85,7 @@ export declare type UiSchema = {
 export declare type UiSchemaItem = {
     [UI_HIDDEN]?: boolean;
     [UI_DISABLED]?: boolean;
-    [UI_WIDTH]?: number;
+    [UI_WIDTH]?: number | 'auto';
     [UI_OPTIONS]?: Record<string, any>;
     [UI_WIDGET]?: UiWidgets | string;
     [UI_COLUMN]?: number;
