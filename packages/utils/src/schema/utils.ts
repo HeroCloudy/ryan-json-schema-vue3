@@ -1,4 +1,4 @@
-import type { OfItem, Schema, SchemaItem } from './types'
+import type { OfItem, Schema, SchemaItem, UiSchema } from './types'
 
 /**
  * 获取 SchemaProp 的默认值
@@ -72,4 +72,21 @@ export const buildOfItem = (title: string, value: any): OfItem<any> => {
     const: value,
     title
   }
+}
+
+export const getTableDefaultUiSchema = (
+  fields: string[],
+  defaultWidth: number,
+  excludeFields: string[] = []
+): UiSchema => {
+  const uiSchema: UiSchema = {}
+  for (const key of fields) {
+    uiSchema[key] = {}
+    if (!excludeFields.includes(key)) {
+      uiSchema[key] = {
+        'ui:width': defaultWidth
+      }
+    }
+  }
+  return uiSchema
 }

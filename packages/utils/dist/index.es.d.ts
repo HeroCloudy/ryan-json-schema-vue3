@@ -29,6 +29,8 @@ export declare const getSchemaDefaultModel: (schema: Schema, fields?: string[]) 
  */
 export declare const getSchemaPropDefaultValue: (schemaProp: SchemaItem) => any;
 
+export declare const getTableDefaultUiSchema: (fields: string[], defaultWidth: number, excludeFields?: string[]) => UiSchema;
+
 export declare interface OfItem<T> {
     title: string;
     const: T;
