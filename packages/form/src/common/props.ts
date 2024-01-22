@@ -5,7 +5,7 @@ import { basicSchemaProps } from '@ryan-json-schema-vue3/utils'
 export const basicFormProps = {
   ...basicSchemaProps,
   model: {
-    type: Object as PropType<{ [key: string]: any }>,
+    type: Object as PropType<Record<string, any>>,
     required: true
   },
   column: {

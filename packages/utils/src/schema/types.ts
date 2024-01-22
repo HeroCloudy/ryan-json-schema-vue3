@@ -14,7 +14,7 @@ export interface OfItem<T> {
   const: T // string | number | boolean;
 }
 
-export type SchemaFormat = 'date' | 'time' | 'date-time' | 'email' | string
+export type SchemaFormat = 'date' | 'time' | 'datetime' | 'email' | string
 
 export interface SchemaItem {
   description?: string

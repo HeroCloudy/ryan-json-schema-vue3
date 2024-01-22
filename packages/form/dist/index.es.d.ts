@@ -1,4 +1,3 @@
-import type { App } from 'vue';
 import { Arrayable } from 'element-plus/es/utils';
 import { BasicSchemaProp } from '@ryan-json-schema-vue3/utils';
 import { ComponentOptionsMixin } from 'vue';
@@ -6,6 +5,7 @@ import { DefineComponent } from 'vue';
 import { ExtractPropTypes } from 'vue';
 import { FormItemRule } from 'element-plus';
 import { FormRules } from 'element-plus';
+import type { Plugin as Plugin_2 } from 'vue';
 import { PropType } from 'vue';
 import { PublicProps } from 'vue';
 import { Schema } from '@ryan-json-schema-vue3/utils';
@@ -53,9 +53,7 @@ export declare interface BasicFormProp extends BasicSchemaProp {
 
 export declare const basicFormProps: {
     readonly model: {
-        readonly type: PropType<{
-            [key: string]: any;
-        }>;
+        readonly type: PropType<Record<string, any>>;
         readonly required: true;
     };
     readonly column: {
@@ -88,13 +86,6 @@ export declare const bindMethod: (getFormRef: any) => {
     reset: () => void;
     validate: (callback: any) => void;
 };
-
-declare const _default: {
-    install: (app: App<any>) => void;
-};
-export default _default;
-
-export declare const install: (app: App) => void;
 
 export declare const JsonDescription: DefineComponent<{
     readonly model: {
@@ -159,17 +150,15 @@ export declare const JsonDescription: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
+    readonly uiSchema: UiSchema;
+    readonly column: number;
     readonly size: string;
     readonly border: boolean;
-    readonly column: number;
-    readonly uiSchema: UiSchema;
 }, {}>;
 
 export declare const JsonForm: DefineComponent<{
     readonly model: {
-        readonly type: PropType<{
-            [key: string]: any;
-        }>;
+        readonly type: PropType<Record<string, any>>;
         readonly required: true;
     };
     readonly column: {
@@ -193,9 +182,7 @@ export declare const JsonForm: DefineComponent<{
     };
 }, () => any, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<ExtractPropTypes<{
     readonly model: {
-        readonly type: PropType<{
-            [key: string]: any;
-        }>;
+        readonly type: PropType<Record<string, any>>;
         readonly required: true;
     };
     readonly column: {
@@ -218,9 +205,9 @@ export declare const JsonForm: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
-    readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
-    readonly column: number;
     readonly uiSchema: UiSchema;
+    readonly column: number;
+    readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
 }, {}>;
 
 export declare const JsonFormDescription: DefineComponent<{
@@ -314,12 +301,12 @@ export declare const JsonFormDescription: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
+    readonly uiSchema: UiSchema;
+    readonly column: number;
+    readonly readMode: boolean;
     readonly size: string;
     readonly border: boolean;
     readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
-    readonly column: number;
-    readonly uiSchema: UiSchema;
-    readonly readMode: boolean;
 }, {}>;
 
 export declare const jsonFormDescriptionProps: {
@@ -440,10 +427,10 @@ export declare const ProDescription: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
+    readonly uiSchema: UiSchema;
+    readonly column: number;
     readonly size: string;
     readonly border: boolean;
-    readonly column: number;
-    readonly uiSchema: UiSchema;
 }, {}>;
 
 export declare const proDescriptionProps: {
@@ -489,9 +476,7 @@ export declare const ProForm: DefineComponent<{
         readonly required: false;
     };
     readonly model: {
-        readonly type: PropType<{
-            [key: string]: any;
-        }>;
+        readonly type: PropType<Record<string, any>>;
         readonly required: true;
     };
     readonly column: {
@@ -519,9 +504,7 @@ export declare const ProForm: DefineComponent<{
         readonly required: false;
     };
     readonly model: {
-        readonly type: PropType<{
-            [key: string]: any;
-        }>;
+        readonly type: PropType<Record<string, any>>;
         readonly required: true;
     };
     readonly column: {
@@ -544,9 +527,9 @@ export declare const ProForm: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
-    readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
-    readonly column: number;
     readonly uiSchema: UiSchema;
+    readonly column: number;
+    readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
 }, {}>;
 
 export declare interface ProFormProp extends BasicFormProp {
@@ -559,9 +542,7 @@ export declare const proFormProps: {
         readonly required: false;
     };
     readonly model: {
-        readonly type: PropType<{
-            [key: string]: any;
-        }>;
+        readonly type: PropType<Record<string, any>>;
         readonly required: true;
     };
     readonly column: {
@@ -584,5 +565,8 @@ export declare const proFormProps: {
         readonly default: () => {};
     };
 };
+
+declare const RyanFrom: Plugin_2<[]>;
+export default RyanFrom;
 
 export { }

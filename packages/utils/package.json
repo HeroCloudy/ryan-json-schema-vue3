@@ -45,8 +45,8 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "vite-plugin-dts": "^3.7.0",
-    "vue": "^3.3.11"
+    "vite-plugin-dts": "^3.7.1",
+    "vue": "^3.4.15"
   },
   "peerDependencies": {
     "vue": "^3.3.11"

@@ -1,0 +1,29 @@
+{
+  "name": "@ryan-json-schema-vue3/docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev ./",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "1.0.0-rc.39"
+  },
+  "dependencies": {
+    "@ryan-json-schema-vue3/form": "workspace:^",
+    "@ryan-json-schema-vue3/table": "workspace:^",
+    "@ryan-json-schema-vue3/utils": "workspace:^",
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.2.2",
+    "add": "^2.0.6",
+    "element-plus": "^2.5.1",
+    "pnpm": "^8.14.1",
+    "vue": "3.4.5"
+  }
+}

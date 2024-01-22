@@ -171,13 +171,13 @@ const V = (e, t) => {
       Object.keys(o.properties).forEach((f) => {
         const a = o.properties[f];
         a.prop = a.prop || f;
-        const C = c[f] || {}, E = C[G] || {}, d = {
+        const C = c[f] || {}, P = C[G] || {}, d = {
           field: a.prop,
           title: a.description || a.prop,
           headerAlign: "center",
           align: "center",
           showOverflow: !0,
-          ...E
+          ...P
         };
         if (C[R] ? d.width = C[R] : f.includes("Time") && (d.width = 200), t.slots[f] && (d.slots = {
           default: f
@@ -187,18 +187,18 @@ const V = (e, t) => {
               d.formatter = U;
               break;
           }
-        E.formatter && typeof E.formatter == "function" ? d.formatter = E.formatter : a.oneOf ? d.formatter = ({
+        P.formatter && typeof P.formatter == "function" ? d.formatter = P.formatter : a.oneOf ? d.formatter = ({
           cellValue: y
         }) => {
-          const g = a.oneOf.find((P) => P.const === y);
+          const g = a.oneOf.find((E) => E.const === y);
           return (g == null ? void 0 : g.title) || y;
         } : a.anyOf && (d.formatter = ({
           cellValue: y
         }) => {
           let g = [];
-          return typeof y == "string" ? g = y.split(",") : g = y, g.map((P) => {
-            const S = a.anyOf.find((K) => K.const === P);
-            return (S == null ? void 0 : S.title) || P;
+          return typeof y == "string" ? g = y.split(",") : g = y, g.map((E) => {
+            const S = a.anyOf.find((K) => K.const === E);
+            return (S == null ? void 0 : S.title) || E;
           }).join(",");
         }), l.push(d);
       });

@@ -46,14 +46,14 @@
   "license": "ISC",
   "dependencies": {
     "@ryan-json-schema-vue3/utils": "workspace:^",
+    "element-plus": "^2.5.1",
     "vue": "^3.3.11",
-    "element-plus": "^2.4.4",
-    "vxe-table": "^4.5.17",
-    "xe-utils": "^3.5.14"
+    "vxe-table": "^4.5.18",
+    "xe-utils": "^3.5.18"
   },
   "peerDependencies": {
-    "vue": "^3.3.11",
     "element-plus": "^2.4.4",
+    "vue": "^3.3.11",
     "vxe-table": "^4.5.17",
     "xe-utils": "^3.5.14"
   },

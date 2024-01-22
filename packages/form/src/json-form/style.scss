@@ -1,8 +1,13 @@
 .ry-json-form {
+
   width: 100%;
   overflow: hidden;
 
   .el-row {
     width: 100%;
+  }
+
+  .el-date-editor {
+    --el-date-editor-width: 100%;
   }
 }

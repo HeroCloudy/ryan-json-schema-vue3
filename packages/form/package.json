@@ -13,7 +13,8 @@
       "require": "./dist/index.umd.js",
       "import": "./dist/index.es.js",
       "types": "./dist/index.es.d.ts"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "./dist",
@@ -46,17 +47,17 @@
   "license": "ISC",
   "dependencies": {
     "@ryan-json-schema-vue3/utils": "workspace:^",
-    "element-plus": "^2.4.4",
-    "vue": "^3.3.11"
+    "element-plus": "^2.5.1",
+    "vue": "^3.4.15"
   },
   "peerDependencies": {
     "element-plus": "^2.4.4",
     "vue": "^3.3.11"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.5.2",
+    "@vitejs/plugin-vue": "^5.0.3",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "vite-plugin-dts": "^3.7.0"
+    "vite-plugin-dts": "^3.7.1"
   },
   "publishConfig": {
     "access": "public",
