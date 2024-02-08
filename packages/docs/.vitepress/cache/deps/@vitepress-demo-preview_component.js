@@ -19,7 +19,7 @@ import {
   watch,
   withCtx
 } from "./chunk-F4I3QGYD.js";
-import "./chunk-ZS7NZCD4.js";
+import "./chunk-3EJPJMEH.js";
 
 // ../../node_modules/.pnpm/@vitepress-demo-preview+component@2.3.2_vitepress@1.0.0-rc.39_vue@3.4.5/node_modules/@vitepress-demo-preview/component/dist/preview-component.js
 var Z = (t, n) => {

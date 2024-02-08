@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/moment": "^2.13.0",
     "vitepress": "1.0.0-rc.39"
   },
   "dependencies": {
@@ -23,7 +24,10 @@
     "@vitepress-demo-preview/plugin": "^1.2.2",
     "add": "^2.0.6",
     "element-plus": "^2.5.1",
+    "moment": "^2.30.1",
     "pnpm": "^8.14.1",
-    "vue": "3.4.5"
+    "vue": "3.4.5",
+    "vxe-table": "^4.5.18",
+    "xe-utils": "^3.5.18"
   }
 }

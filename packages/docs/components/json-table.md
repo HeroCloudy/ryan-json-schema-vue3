@@ -3,22 +3,16 @@ title: JsonForm 表单
 description: JsonForm 表单组件文档
 ---
 
-# JsonForm JSON 表单
+# JsonTable JSON 列表
 
-基于 Element Plus 中 ElForm 实现的 JSON Schema 表单。
+基于 VxeTable 实现的 JSON Schema 列表
 
 ## 基础用法
 
 使用 `schema`、`uiSchema`、`model` 属性定义表单。
 
-[//]: # (:::preview 测试组件)
-
-[//]: # (demo-preview=../demos/json-schema/demo-basic.vue)
-
-[//]: # (:::)
-
-:::preview 日期动态禁用
-demo-preview=../demos/json-schema/demo-date-disabled.vue
+:::preview 测试组件
+demo-preview=../demos/json-table/demo-basic.vue
 :::
 
 ## 组件 API

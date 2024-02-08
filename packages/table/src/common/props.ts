@@ -51,6 +51,10 @@ export const basicTableProps = {
     type: String,
     required: false,
     default: '_X_ROW_KEY'
+  },
+  columnWidth: {
+    type: String,
+    required: false
   }
 } as const
 

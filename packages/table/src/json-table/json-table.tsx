@@ -9,6 +9,7 @@ import { basicTableProps } from '../common/props'
 import { renderBtnItem } from './render/row-btn-render'
 
 import './style.scss'
+import { byteLength } from '../common/utils'
 
 const NAME = 'ry-json-table'
 
@@ -121,10 +122,19 @@ const JsonTable = defineComponent({
         }
         if (uiItem[UI_WIDTH]) {
           target.width = uiItem[UI_WIDTH]
-        } else {
-          // target.width = 200
-          if (k.includes('Time')) {
+        } else if (props.columnWidth === 'auto') {
+          if (item.description) {
+            let defaultMinWidth = byteLength(item.description!) * 20
+            if (defaultMinWidth < 100) {
+              defaultMinWidth = 100
+            }
+            target.minWidth = defaultMinWidth < 100 ? 100 : defaultMinWidth
+          }
+        } else if (props.columnWidth) {
+          if (k.includes('Time') || k.includes('Date')) {
             target.width = 200
+          } else {
+            target.width = props.columnWidth
           }
         }
 

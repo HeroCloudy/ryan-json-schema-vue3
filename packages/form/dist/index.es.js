@@ -1,5 +1,5 @@
 import { createVNode as c, mergeProps as m, isVNode as S, defineComponent as I, ref as T, reactive as x, watchEffect as re, computed as w, resolveComponent as L, createTextVNode as F } from "vue";
-import { ElRadioGroup as ne, ElRadio as oe, ElSelect as se, ElOption as ie, ElDatePicker as le, ElInput as ae, ElInputNumber as ce, ElSwitch as ue, ElCheckboxGroup as de, ElCheckbox as me, ElCol as pe, ElFormItem as fe, ElForm as he, ElRow as be } from "element-plus";
+import { ElRadioGroup as oe, ElRadio as ne, ElSelect as se, ElOption as ie, ElDatePicker as le, ElInput as ae, ElInputNumber as ce, ElSwitch as ue, ElCheckboxGroup as de, ElCheckbox as me, ElCol as pe, ElFormItem as fe, ElForm as he, ElRow as be } from "element-plus";
 const H = "ui:hidden", ye = "ui:disabled", Ee = "ui:width", R = "ui:options", y = "ui:widget", G = "ui:column";
 var p = /* @__PURE__ */ ((e) => (e.SELECT = "select", e.RADIO = "radio", e.CHECKBOX = "checkbox", e.SWITCH = "switch", e.INPUT = "input", e.TEXTAREA = "textarea", e))(p || {}), O = /* @__PURE__ */ ((e) => (e.STRING = "string", e.NUMBER = "number", e.ARRAY = "array", e.BOOLEAN = "boolean", e))(O || {});
 const J = {
@@ -20,17 +20,17 @@ const J = {
       ...e,
       properties: {}
     };
-  const n = {};
+  const o = {};
   return t.forEach((r) => {
-    e.properties[r] && (n[r] = e.properties[r]);
+    e.properties[r] && (o[r] = e.properties[r]);
   }), {
     ...e,
-    properties: n
+    properties: o
   };
 };
 class E {
-  constructor(t, n, r) {
-    this.schema = t, this.uiSchema = n, this.model = r, this.commonProps = this.initCommonProps(), this.prop = this.schema.prop;
+  constructor(t, o, r) {
+    this.schema = t, this.uiSchema = o, this.model = r, this.commonProps = this.initCommonProps(), this.prop = this.schema.prop;
   }
   initCommonProps() {
     const t = {
@@ -46,12 +46,12 @@ class K extends E {
   render() {
     let t;
     const {
-      oneOf: n
+      oneOf: o
     } = this.schema;
-    return c(ne, m(this.commonProps, {
+    return c(oe, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (r) => this.model[this.prop] = r
-    }), Se(t = n.map((r) => c(oe, {
+    }), Se(t = o.map((r) => c(ne, {
       label: r.const
     }, {
       default: () => [r.title]
@@ -67,16 +67,16 @@ class q extends E {
   render() {
     let t;
     const {
-      oneOf: n,
+      oneOf: o,
       anyOf: r
-    } = this.schema, o = !!r, s = n || r || [];
+    } = this.schema, n = !!r, s = o || r || [];
     return c(se, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (i) => this.model[this.prop] = i,
       style: {
         width: "100%"
       },
-      multiple: o,
+      multiple: n,
       clearable: !0
     }), ge(t = s.map((i) => c(ie, {
       label: i.title,
@@ -92,9 +92,9 @@ class X extends E {
       format: t
     } = this.schema;
     const {
-      type: n
+      type: o
     } = this.schema;
-    return n === O.ARRAY && (t += "range", this.commonProps["range-separator"] = this.commonProps["range-separator"] || "-"), c(le, m(this.commonProps, {
+    return o === O.ARRAY && (t += "range", this.commonProps["range-separator"] = this.commonProps["range-separator"] || "-"), c(le, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (r) => this.model[this.prop] = r,
       type: t,
@@ -108,7 +108,7 @@ class Re extends E {
     return c(ae, m(this.commonProps, {
       type: t,
       modelValue: this.model[this.prop],
-      "onUpdate:modelValue": (n) => this.model[this.prop] = n,
+      "onUpdate:modelValue": (o) => this.model[this.prop] = o,
       clearable: !0
     }), null);
   }
@@ -140,12 +140,12 @@ class Pe extends E {
   render() {
     let t;
     const {
-      anyOf: n = []
+      anyOf: o = []
     } = this.schema;
     return c(de, m(this.commonProps, {
       modelValue: this.model[this.prop],
       "onUpdate:modelValue": (r) => this.model[this.prop] = r
-    }), ve(t = n.map((r) => c(me, {
+    }), ve(t = o.map((r) => c(me, {
       label: r.const
     }, {
       default: () => [r.title]
@@ -157,7 +157,7 @@ class Pe extends E {
 function Ce(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !S(e);
 }
-const we = (e, t = {}, n, r, o, s) => {
+const we = (e, t = {}, o, r, n, s) => {
   let i;
   const a = e.prop;
   if (t[H])
@@ -177,10 +177,10 @@ const we = (e, t = {}, n, r, o, s) => {
   const d = {
     item: e,
     uiItem: u,
-    model: n
+    model: o
   }, f = () => {
     if (r && r[a])
-      return () => r[a](n);
+      return () => r[a](o);
     switch (e.type) {
       case O.STRING:
         return M(d);
@@ -194,7 +194,7 @@ const we = (e, t = {}, n, r, o, s) => {
     return M(d);
   }, h = t[G] || 1, g = (t[R] || {}).labelWidth || "auto";
   return c(pe, {
-    span: o * h
+    span: n * h
   }, {
     default: () => [c(fe, {
       label: e.description,
@@ -207,61 +207,65 @@ const we = (e, t = {}, n, r, o, s) => {
 }, U = (e = "不支持该类型") => c("div", null, [e]), M = (e) => {
   const {
     model: t,
-    item: n,
+    item: o,
     uiItem: r
   } = e;
-  if (n.oneOf) {
-    const o = r[y] || p.SELECT;
-    return o === p.RADIO ? new K(n, r, t).render() : o === p.SELECT ? new q(n, r, t).render() : U();
+  if (o.oneOf) {
+    const n = r[y] || p.SELECT;
+    return n === p.RADIO ? new K(o, r, t).render() : n === p.SELECT ? new q(o, r, t).render() : U();
   }
-  return n.format && (n.format === "date" || n.format === "datetime") ? new X(n, r, t).render() : new Re(n, r, t).render();
+  if (o.format && (o.format === "date" || o.format === "datetime")) {
+    const n = r["ui:options"] || {};
+    return console.log("重新渲染date-picker", o.prop, n["disabled-date"]), new X(o, r, t).render();
+  }
+  return new Re(o, r, t).render();
 }, Ie = (e) => {
   const {
     model: t,
-    item: n,
+    item: o,
     uiItem: r
   } = e;
-  return r && r[y] === p.SWITCH ? new Y(n, r, t).render() : new je(n, r, t).render();
+  return r && r[y] === p.SWITCH ? new Y(o, r, t).render() : new je(o, r, t).render();
 }, Ae = (e) => {
   const {
     model: t,
-    item: n,
+    item: o,
     uiItem: r
-  } = e, o = r[y] || p.SWITCH, s = [{
+  } = e, n = r[y] || p.SWITCH, s = [{
     const: !0,
     title: "是"
   }, {
     const: !1,
     title: "否"
   }];
-  return n.oneOf = n.oneOf ? n.oneOf : s, o === p.SWITCH ? new Y(n, r, t).render() : o === p.RADIO ? new K(n, r, t).render() : o === p.SELECT ? new q(n, r, t).render() : U();
+  return o.oneOf = o.oneOf ? o.oneOf : s, n === p.SWITCH ? new Y(o, r, t).render() : n === p.RADIO ? new K(o, r, t).render() : n === p.SELECT ? new q(o, r, t).render() : U();
 }, Ne = (e) => {
   const {
     model: t,
-    item: n,
+    item: o,
     uiItem: r
   } = e;
-  if (n.anyOf) {
-    const o = r[y] || "select";
-    if (o === p.SELECT)
-      return new q(n, r, t).render();
-    if (o === p.CHECKBOX)
-      return new Pe(n, r, t).render();
+  if (o.anyOf) {
+    const n = r[y] || "select";
+    if (n === p.SELECT)
+      return new q(o, r, t).render();
+    if (n === p.CHECKBOX)
+      return new Pe(o, r, t).render();
   }
-  return n.format && (n.format === "date" || n.format === "datetime") ? new X(n, r, t).render() : U();
+  return o.format && (o.format === "date" || o.format === "datetime") ? new X(o, r, t).render() : U();
 }, Ve = (e = {}, t) => {
-  const n = { ...e }, { properties: r } = t, { required: o = [] } = t;
-  return o.forEach((s) => {
+  const o = { ...e }, { properties: r } = t, { required: n = [] } = t;
+  return n.forEach((s) => {
     if (r[s]) {
       const i = r[s].prop || s;
-      B(n, i, W(r[s].description));
+      B(o, i, W(r[s].description));
     }
   }), Object.keys(r).forEach((s) => {
     const i = r[s], a = i.prop || s;
-    i.required && o.findIndex((u) => u === a) < 0 && B(n, a, W(r[s].description));
-  }), n;
-}, B = (e, t, n) => {
-  e[t] || (e[t] = []), e[t].push(n);
+    i.required && n.findIndex((u) => u === a) < 0 && B(o, a, W(r[s].description));
+  }), o;
+}, B = (e, t, o) => {
+  e[t] || (e[t] = []), e[t].push(o);
 }, W = (e) => ({ required: !0, message: `${e}不能为空`, trigger: "blur" }), z = {
   ...J,
   model: {
@@ -278,13 +282,13 @@ const we = (e, t = {}, n, r, o, s) => {
     required: !1,
     default: () => ({})
   }
-}, Q = {
+}, k = {
   ...z,
   fields: {
     type: Array,
     required: !1
   }
-}, Z = {
+}, Q = {
   ...J,
   model: {
     type: Object,
@@ -305,15 +309,15 @@ const we = (e, t = {}, n, r, o, s) => {
     required: !1,
     default: !0
   }
-}, k = {
-  ...Z,
+}, Z = {
+  ...Q,
   fields: {
     type: Array,
     required: !1
   }
 }, De = {
-  ...Q,
   ...k,
+  ...Z,
   readMode: {
     type: Boolean,
     required: !1,
@@ -327,15 +331,15 @@ const $ = "ry-json-form", j = /* @__PURE__ */ I({
   name: $,
   props: z,
   setup(e, t) {
-    const n = T();
+    const o = T();
     let r = x(e.model);
-    const o = () => {
-      n.value && n.value.resetFields();
+    const n = () => {
+      o.value && o.value.resetFields();
     }, s = (l) => {
-      n.value && n.value.validate(l);
+      o.value && o.value.validate(l);
     };
     t.expose({
-      reset: o,
+      reset: n,
       validate: s
     });
     let i = 24 / e.column;
@@ -350,7 +354,7 @@ const $ = "ry-json-form", j = /* @__PURE__ */ I({
         t.emit("enter-up", l, e.model);
       }
     }, f = () => {
-      n.value && n.value.clearValidate();
+      o.value && o.value.clearValidate();
       const {
         properties: l
       } = e.schema, b = [];
@@ -382,7 +386,7 @@ const $ = "ry-json-form", j = /* @__PURE__ */ I({
       return c("div", {
         className: $
       }, [c(he, m(te, {
-        ref: n,
+        ref: o,
         model: r,
         rules: h.value,
         labelWidth: "auto",
@@ -406,27 +410,27 @@ const qe = (e) => ({
     r && r.reset();
   },
   validate: (r) => {
-    const o = e();
-    o && o.validate(r);
+    const n = e();
+    n && n.validate(r);
   }
 }), ee = (e, t) => ({
-  onDataChange: (o, s) => {
-    e.emit("data-change", o, s, t);
+  onDataChange: (n, s) => {
+    e.emit("data-change", n, s, t);
   },
-  onEnterUp: (o) => {
-    e.emit("enter-up", o, t);
+  onEnterUp: (n) => {
+    e.emit("enter-up", n, t);
   }
 }), Ue = "ry-pro-form", v = /* @__PURE__ */ I({
   name: Ue,
-  props: Q,
+  props: k,
   setup(e, t) {
-    const n = T(), {
+    const o = T(), {
       reset: r,
-      validate: o
-    } = qe(() => n.value);
+      validate: n
+    } = qe(() => o.value);
     t.expose({
       reset: r,
-      validate: o
+      validate: n
     });
     const s = w(() => {
       if (!e.fields)
@@ -445,7 +449,7 @@ const qe = (e) => ({
       return delete a.fields, a;
     });
     return () => c(j, m({
-      ref: n
+      ref: o
     }, i.value, {
       schema: s.value
     }, ee(t, e.model)), t.slots);
@@ -454,11 +458,11 @@ const qe = (e) => ({
 v.install = (e) => {
   e.component(v.name, v);
 };
-const _e = (e, t = {}, n, r) => {
+const _e = (e, t = {}, o, r) => {
   if (t[H] === !0)
     return null;
-  const o = e.prop, s = () => {
-    const a = n[o];
+  const n = e.prop, s = () => {
+    const a = o[n];
     if (e.oneOf) {
       const u = e.oneOf.find((d) => d.const === a);
       return u ? u.title : a;
@@ -478,7 +482,7 @@ const _e = (e, t = {}, n, r) => {
     width: t[Ee] || 100,
     label: e.description || ""
   }), {
-    default: () => [r[o] ? r[o](n) : s()]
+    default: () => [r[n] ? r[n](o) : s()]
   });
 };
 function xe(e) {
@@ -486,28 +490,28 @@ function xe(e) {
 }
 const Fe = "ry-json-description", P = /* @__PURE__ */ I({
   name: Fe,
-  props: Z,
+  props: Q,
   setup(e, t) {
-    const n = () => {
+    const o = () => {
       const {
         properties: r
-      } = e.schema, o = [];
+      } = e.schema, n = [];
       return Object.keys(r).forEach((s) => {
         const i = r[s];
         i.prop = i.prop || s;
         const a = e.uiSchema[s], u = _e(i, a, e.model, t.slots);
-        u && o.push(u);
-      }), o;
+        u && n.push(u);
+      }), n;
     };
     return () => {
       let r;
       const {
-        column: o
+        column: n
       } = e;
       return c(L("el-descriptions"), m(t.attrs, {
-        column: o,
+        column: n,
         border: !0
-      }), xe(r = n()) ? r : {
+      }), xe(r = o()) ? r : {
         default: () => [r]
       });
     };
@@ -518,15 +522,15 @@ P.install = (e) => {
 };
 const Me = "ry-pro-description", C = /* @__PURE__ */ I({
   name: Me,
-  props: k,
+  props: Z,
   setup(e, t) {
-    const n = t.attrs, r = w(() => Oe(e.schema, e.fields)), o = w(() => {
+    const o = t.attrs, r = w(() => Oe(e.schema, e.fields)), n = w(() => {
       const s = {
         ...e
       };
       return delete s.fields, s;
     });
-    return () => c(P, m(n, o.value, {
+    return () => c(P, m(o, n.value, {
       schema: r.value
     }), t.slots);
   }
@@ -538,14 +542,14 @@ const Be = "ry-json-form-description", V = /* @__PURE__ */ I({
   name: Be,
   props: De,
   setup(e, t) {
-    const n = T(), r = () => {
-      n.value && n.value.reset();
-    }, o = (s) => {
-      n.value && n.value.validate(s);
+    const o = T(), r = () => {
+      o.value && o.value.reset();
+    }, n = (s) => {
+      o.value && o.value.validate(s);
     };
     return t.expose({
       reset: r,
-      validate: o
+      validate: n
     }), () => {
       const {
         readMode: s,
@@ -555,7 +559,7 @@ const Be = "ry-json-form-description", V = /* @__PURE__ */ I({
         default: () => [F("description")],
         ...t.slots
       }) : c(v, m({
-        ref: n
+        ref: o
       }, i, ee(t, e.model)), {
         default: () => [F("form")],
         ...t.slots
@@ -579,12 +583,12 @@ export {
   V as JsonFormDescription,
   C as ProDescription,
   v as ProForm,
-  Z as basicDescriptionProps,
+  Q as basicDescriptionProps,
   z as basicFormProps,
   ee as bindEvent,
   qe as bindMethod,
   He as default,
   De as jsonFormDescriptionProps,
-  k as proDescriptionProps,
-  Q as proFormProps
+  Z as proDescriptionProps,
+  k as proFormProps
 };

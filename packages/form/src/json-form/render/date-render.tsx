@@ -11,10 +11,26 @@ export class DateRender extends BaseRender {
     let { format } = this.schema
     const { type } = this.schema
 
+    // if (this.commonProps['disabled-date']) {
+    //   this.isShow = false
+    //   setTimeout(() => {
+    //     this.isShow = true
+    //   }, 30)
+    // }
+
+    // const innerDisabledDate = (value: Date) => {
+    //   if (this.commonProps['disabled-date']) {
+    //     return this.commonProps['disabled-date'](value)
+    //   }
+    //   return false
+    // }
+
     if (type === SchemaType.ARRAY) {
       format += 'range'
       this.commonProps['range-separator'] = this.commonProps['range-separator'] || '-'
     }
+
+    // this.commonProps['disabledDate'] = innerDisabledDate
 
     return (
       <ElDatePicker

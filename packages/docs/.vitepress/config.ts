@@ -33,6 +33,10 @@ export default defineConfig({
             link: '/components/json-form-description'
           }
         ]
+      },
+      {
+        text: 'Table 表格',
+        items: [{ text: 'Json Table JSON 表格', link: '/components/json-table' }]
       }
     ],
 

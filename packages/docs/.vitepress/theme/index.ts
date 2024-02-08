@@ -7,6 +7,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import RyanForm from '@ryan-json-schema-vue3/form'
 import '@ryan-json-schema-vue3/form/dist/style.css'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/style.css'
 import RyanTable from '@ryan-json-schema-vue3/table'
 import {
   AntDesignContainer,
@@ -25,6 +27,7 @@ export default {
   enhanceApp({ app, router, siteData }) {
     app.use(ElementPlus)
     app.use(RyanForm)
+    app.use(VXETable)
     app.use(RyanTable)
     app.component('demo-preview', ElementPlusContainer)
   }
