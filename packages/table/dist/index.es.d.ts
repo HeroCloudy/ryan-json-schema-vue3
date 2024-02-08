@@ -70,6 +70,10 @@ export declare const basicTableProps: {
         readonly required: false;
         readonly default: "_X_ROW_KEY";
     };
+    readonly columnWidth: {
+        readonly type: StringConstructor;
+        readonly required: false;
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -147,6 +151,10 @@ export declare const JsonTable: DefineComponent<{
         readonly required: false;
         readonly default: "_X_ROW_KEY";
     };
+    readonly columnWidth: {
+        readonly type: StringConstructor;
+        readonly required: false;
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -205,6 +213,10 @@ export declare const JsonTable: DefineComponent<{
         readonly required: false;
         readonly default: "_X_ROW_KEY";
     };
+    readonly columnWidth: {
+        readonly type: StringConstructor;
+        readonly required: false;
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -215,6 +227,7 @@ export declare const JsonTable: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
+    readonly uiSchema: UiSchema;
     readonly showPager: boolean;
     readonly showIndex: boolean;
     readonly selectionType: "" | "checkbox";
@@ -223,7 +236,6 @@ export declare const JsonTable: DefineComponent<{
     readonly tableLoading: boolean;
     readonly optWidth: string;
     readonly rowKey: string;
-    readonly uiSchema: UiSchema;
 }, {}>;
 
 export declare type PageInfo = {
@@ -285,6 +297,10 @@ export declare const ProTable: DefineComponent<{
         readonly required: false;
         readonly default: "_X_ROW_KEY";
     };
+    readonly columnWidth: {
+        readonly type: StringConstructor;
+        readonly required: false;
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -347,6 +363,10 @@ export declare const ProTable: DefineComponent<{
         readonly required: false;
         readonly default: "_X_ROW_KEY";
     };
+    readonly columnWidth: {
+        readonly type: StringConstructor;
+        readonly required: false;
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -357,6 +377,7 @@ export declare const ProTable: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
+    readonly uiSchema: UiSchema;
     readonly showPager: boolean;
     readonly showIndex: boolean;
     readonly selectionType: "" | "checkbox";
@@ -365,7 +386,6 @@ export declare const ProTable: DefineComponent<{
     readonly tableLoading: boolean;
     readonly optWidth: string;
     readonly rowKey: string;
-    readonly uiSchema: UiSchema;
 }, {}>;
 
 export declare interface ProTableProp extends BasicTableProp {
@@ -424,6 +444,10 @@ export declare const proTableProps: {
         readonly type: StringConstructor;
         readonly required: false;
         readonly default: "_X_ROW_KEY";
+    };
+    readonly columnWidth: {
+        readonly type: StringConstructor;
+        readonly required: false;
     };
     readonly schema: {
         readonly type: PropType<Schema>;

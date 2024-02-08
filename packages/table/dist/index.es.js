@@ -1,8 +1,8 @@
-import { createVNode as h, isVNode as M, defineComponent as I, computed as m, ref as L, mergeProps as _, resolveComponent as W } from "vue";
+import { createVNode as y, isVNode as X, defineComponent as x, computed as h, ref as A, mergeProps as I, resolveComponent as K } from "vue";
 import H from "xe-utils";
 import { VxeGrid as J } from "vxe-table";
 import { ElPopconfirm as Y, ElButton as B } from "element-plus";
-const R = "ui:width", G = "ui:options", $ = {
+const q = "ui:width", G = "ui:options", $ = {
   schema: {
     type: Object,
     required: !0
@@ -12,7 +12,7 @@ const R = "ui:width", G = "ui:options", $ = {
     required: !1,
     default: () => ({})
   }
-}, k = {
+}, _ = {
   ...$,
   model: {
     type: Array,
@@ -61,25 +61,29 @@ const R = "ui:width", G = "ui:options", $ = {
     type: String,
     required: !1,
     default: "_X_ROW_KEY"
+  },
+  columnWidth: {
+    type: String,
+    required: !1
   }
 }, Q = {
-  ...k,
+  ..._,
   fields: {
     type: Array,
     required: !1
   }
 };
-function q(e) {
-  return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !M(e);
+function D(e) {
+  return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !X(e);
 }
 const V = (e, t) => {
   const {
-    type: s = "default",
+    type: l = "default",
     key: p,
     flag: n,
-    title: r
+    title: i
   } = e;
-  return n === "DEL" ? h(Y, {
+  return n === "DEL" ? y(Y, {
     title: "是否确认删除该记录？",
     "cancel-button-text": "取消",
     "cancel-button-type": "text",
@@ -87,48 +91,55 @@ const V = (e, t) => {
     "confirm-button-type": "danger",
     onConfirm: () => t(p)
   }, {
-    reference: () => h(B, {
+    reference: () => y(B, {
       type: "danger",
       link: !0
-    }, q(r) ? r : {
-      default: () => [r]
+    }, D(i) ? i : {
+      default: () => [i]
     })
-  }) : h(B, {
-    type: s,
+  }) : y(B, {
+    type: l,
     link: !0,
     onClick: () => t(p)
-  }, q(r) ? r : {
-    default: () => [r]
+  }, D(i) ? i : {
+    default: () => [i]
   });
-}, x = "ry-json-table", D = "InnerOptColumn", w = /* @__PURE__ */ I({
-  name: x,
-  props: k,
+};
+function Z(e) {
+  let t = 0;
+  return Array.from(e).forEach((l) => {
+    l.charCodeAt(0) > 255 ? t += 2 : t += 1;
+  }), t;
+}
+const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
+  name: L,
+  props: _,
   setup(e, t) {
-    const s = m(() => ({
+    const l = h(() => ({
       align: "center",
       columnConfig: {
         resizable: !0
       },
       loading: e.tableLoading
-    })), p = m(() => ({
+    })), p = h(() => ({
       isHover: !0,
       useKey: !0,
       keyField: e.rowKey || "_X_ROW_KEY"
-    })), n = L(), r = () => n.value;
+    })), n = A(), i = () => n.value;
     t.expose({
-      getXTableRef: r
+      getXTableRef: i
     });
-    const u = (o) => {
+    const d = (o) => {
       if (e.pageInfo) {
         const {
-          pageInfo: c
+          pageInfo: m
         } = e;
-        c.currentPage = o.currentPage, c.pageSize = o.pageSize;
+        m.currentPage = o.currentPage, m.pageSize = o.pageSize;
       }
       t.emit("page-change", o);
-    }, i = m(() => ({
+    }, u = h(() => ({
       ...e.pageInfo
-    })), F = () => h(W("vxe-pager"), {
+    })), F = () => y(K("vxe-pager"), {
       layouts: [
         "Total",
         "Sizes",
@@ -141,139 +152,148 @@ const V = (e, t) => {
         // 'Number',
         // 'PageCount'
       ],
-      "current-page": i.value.currentPage,
-      "onUpdate:current-page": (o) => i.value.currentPage = o,
-      "page-size": i.value.pageSize,
-      "onUpdate:page-size": (o) => i.value.pageSize = o,
-      total: i.value.total,
-      onPageChange: u
-    }, null), A = m(() => {
+      "current-page": u.value.currentPage,
+      "onUpdate:current-page": (o) => u.value.currentPage = o,
+      "page-size": u.value.pageSize,
+      "onUpdate:page-size": (o) => u.value.pageSize = o,
+      total: u.value.total,
+      onPageChange: d
+    }, null), k = h(() => {
       const {
         schema: o,
-        uiSchema: c,
+        uiSchema: m,
         showIndex: b,
-        selectionType: T
-      } = e, l = [];
-      T === "checkbox" && l.push({
+        selectionType: C
+      } = e, c = [];
+      C === "checkbox" && c.push({
         type: "checkbox",
         width: 50,
         fixed: "left"
-      }), b && l.push({
+      }), b && c.push({
         type: "seq",
         width: 50,
         fixed: "left",
         align: "center",
         title: "序号"
       });
-      const U = ({
+      const N = ({
         cellValue: f
       }) => H.toDateString(f, "yyyy-MM-dd HH:mm:ss");
       Object.keys(o.properties).forEach((f) => {
-        const a = o.properties[f];
-        a.prop = a.prop || f;
-        const C = c[f] || {}, P = C[G] || {}, d = {
-          field: a.prop,
-          title: a.description || a.prop,
+        const r = o.properties[f];
+        r.prop = r.prop || f;
+        const S = m[f] || {}, E = S[G] || {}, s = {
+          field: r.prop,
+          title: r.description || r.prop,
           headerAlign: "center",
           align: "center",
           showOverflow: !0,
-          ...P
+          ...E
         };
-        if (C[R] ? d.width = C[R] : f.includes("Time") && (d.width = 200), t.slots[f] && (d.slots = {
+        if (S[q])
+          s.width = S[q];
+        else if (e.columnWidth === "auto") {
+          if (r.description) {
+            let a = Z(r.description) * 20;
+            a < 100 && (a = 100), s.minWidth = a < 100 ? 100 : a;
+          }
+        } else
+          e.columnWidth && (f.includes("Time") || f.includes("Date") ? s.width = 200 : s.width = e.columnWidth);
+        if (t.slots[f] && (s.slots = {
           default: f
-        }), a.format)
-          switch (a.format) {
+        }), r.format)
+          switch (r.format) {
             case "date-time":
-              d.formatter = U;
+              s.formatter = N;
               break;
           }
-        P.formatter && typeof P.formatter == "function" ? d.formatter = P.formatter : a.oneOf ? d.formatter = ({
-          cellValue: y
+        E.formatter && typeof E.formatter == "function" ? s.formatter = E.formatter : r.oneOf ? s.formatter = ({
+          cellValue: a
         }) => {
-          const g = a.oneOf.find((E) => E.const === y);
-          return (g == null ? void 0 : g.title) || y;
-        } : a.anyOf && (d.formatter = ({
-          cellValue: y
+          const g = r.oneOf.find((P) => P.const === a);
+          return (g == null ? void 0 : g.title) || a;
+        } : r.anyOf && (s.formatter = ({
+          cellValue: a
         }) => {
           let g = [];
-          return typeof y == "string" ? g = y.split(",") : g = y, g.map((E) => {
-            const S = a.anyOf.find((K) => K.const === E);
-            return (S == null ? void 0 : S.title) || E;
+          return typeof a == "string" ? g = a.split(",") : g = a, g.map((P) => {
+            const T = r.anyOf.find((U) => U.const === P);
+            return (T == null ? void 0 : T.title) || P;
           }).join(",");
-        }), l.push(d);
+        }), c.push(s);
       });
       const {
-        rowBtnList: X
+        rowBtnList: M
       } = e;
-      return X !== null && l.push({
+      return M !== null && c.push({
         width: e.optWidth,
         fixed: "right",
         align: "center",
         title: "操作",
         slots: {
-          default: D
+          default: R
         }
-      }), l;
-    }), j = ({
+      }), c;
+    }), W = ({
       row: o
     }) => {
       const {
-        rowBtnList: c
+        rowBtnList: m
       } = e;
       let b = [];
-      typeof c == "function" ? b = c(o) : b = c;
-      const T = (l) => {
-        t.emit("row-btn-click", l, o);
+      typeof m == "function" ? b = m(o) : b = m;
+      const C = (c) => {
+        t.emit("row-btn-click", c, o);
       };
-      return b.map((l) => V(l, T));
+      return b.map((c) => V(c, C));
     }, O = () => {
       n.value && t.emit("row-selected", n.value.getCheckboxRecords());
-    }, z = {
+    }, j = {
       ...t.slots,
-      [D]: j,
+      [R]: W,
       pager: e.showPager ? F : null
-    }, N = m(() => e.model || []);
-    return () => h("div", {
-      class: x
-    }, [h(J, _(t.attrs, {
+    }, z = h(() => e.model || []);
+    return () => y("div", {
+      class: L
+    }, [y(J, I(t.attrs, {
       ref: n
-    }, s.value, {
-      columns: A.value,
-      data: N.value,
+    }, l.value, {
+      columns: k.value,
+      data: z.value,
       height: "auto",
       rowConfig: p.value,
       onCheckboxChange: O,
       onCheckboxAll: O
-    }), z)]);
+    }), j)]);
   }
 });
 w.install = (e) => {
   e.component(w.name, w);
 };
-const Z = "ry-pro-table", v = /* @__PURE__ */ I({
-  name: Z,
+const ee = "ry-pro-table", v = /* @__PURE__ */ x({
+  name: ee,
   props: Q,
   setup(e, t) {
-    const s = L(), p = m(() => {
+    const l = A(), p = h(() => {
       if (!e.fields)
         return e.schema;
-      const u = {};
-      return e.fields.forEach((i) => {
-        e.schema.properties[i] && (u[i] = e.schema.properties[i]);
+      const d = {};
+      return e.fields.forEach((u) => {
+        e.schema.properties[u] && (d[u] = e.schema.properties[u]);
       }), {
         ...e.schema,
-        properties: u
+        properties: d
       };
-    }), n = m(() => {
-      const u = {
+    }), n = h(() => {
+      const d = {
         ...e
       };
-      return delete u.fields, u;
-    }), r = () => s.value && s.value.getXTableRef();
+      return delete d.fields, d;
+    }), i = () => l.value && l.value.getXTableRef();
     return t.expose({
-      getXTableRef: r
-    }), () => h(w, _({
-      ref: s
+      getXTableRef: i
+    }), () => y(w, I({
+      ref: l
     }, n.value, {
       schema: p.value
     }), t.slots);
@@ -282,9 +302,9 @@ const Z = "ry-pro-table", v = /* @__PURE__ */ I({
 v.install = (e) => {
   e.component(v.name, v);
 };
-const ie = (e) => ({
-  onRowBtnClick: (n, r) => {
-    e.emit("row-btn-click", n, r);
+const le = (e) => ({
+  onRowBtnClick: (n, i) => {
+    e.emit("row-btn-click", n, i);
   },
   onRowSelected: (n) => {
     e.emit("row-selected", n);
@@ -292,23 +312,23 @@ const ie = (e) => ({
   onPageChange: (n) => {
     e.emit("page-change", n);
   }
-}), le = [
+}), se = [
   { key: "DEFAULT_EDIT", title: "编辑", type: "primary", flag: "EDIT" },
   { key: "DEFAULT_DEL", title: "删除", type: "danger", flag: "DEL" }
-], ee = [w, v], te = (e) => {
-  ee.forEach((t) => {
+], te = [w, v], ne = (e) => {
+  te.forEach((t) => {
     e.component(t.name, t);
   });
-}, se = {
-  install: te
+}, ue = {
+  install: ne
 };
 export {
-  le as DEFAULT_ROW_BTN_LIST,
+  se as DEFAULT_ROW_BTN_LIST,
   w as JsonTable,
   v as ProTable,
-  k as basicTableProps,
-  ie as bindEvent,
-  se as default,
-  te as install,
+  _ as basicTableProps,
+  le as bindEvent,
+  ue as default,
+  ne as install,
   Q as proTableProps
 };
