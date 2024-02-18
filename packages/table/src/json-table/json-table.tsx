@@ -123,7 +123,9 @@ const JsonTable = defineComponent({
         if (uiItem[UI_WIDTH]) {
           target.width = uiItem[UI_WIDTH]
         } else if (props.columnWidth === 'auto') {
-          if (item.description) {
+          if (uiOptions.minWidth && uiOptions.minWidth !== 'auto') {
+            target.minWidth = uiOptions.minWidth
+          } else if (item.description) {
             let defaultMinWidth = byteLength(item.description!) * 20
             if (defaultMinWidth < 100) {
               defaultMinWidth = 100
