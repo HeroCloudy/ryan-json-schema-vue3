@@ -1,8 +1,8 @@
-import { createVNode as y, isVNode as X, defineComponent as x, computed as h, ref as A, mergeProps as I, resolveComponent as K } from "vue";
+import { createVNode as b, isVNode as X, defineComponent as R, computed as y, ref as x, mergeProps as A, resolveComponent as K } from "vue";
 import H from "xe-utils";
 import { VxeGrid as J } from "vxe-table";
 import { ElPopconfirm as Y, ElButton as B } from "element-plus";
-const q = "ui:width", G = "ui:options", $ = {
+const W = "ui:width", G = "ui:options", $ = {
   schema: {
     type: Object,
     required: !0
@@ -12,7 +12,7 @@ const q = "ui:width", G = "ui:options", $ = {
     required: !1,
     default: () => ({})
   }
-}, _ = {
+}, I = {
   ...$,
   model: {
     type: Array,
@@ -67,23 +67,23 @@ const q = "ui:width", G = "ui:options", $ = {
     required: !1
   }
 }, Q = {
-  ..._,
+  ...I,
   fields: {
     type: Array,
     required: !1
   }
 };
-function D(e) {
+function q(e) {
   return typeof e == "function" || Object.prototype.toString.call(e) === "[object Object]" && !X(e);
 }
 const V = (e, t) => {
   const {
-    type: l = "default",
+    type: s = "default",
     key: p,
     flag: n,
     title: i
   } = e;
-  return n === "DEL" ? y(Y, {
+  return n === "DEL" ? b(Y, {
     title: "是否确认删除该记录？",
     "cancel-button-text": "取消",
     "cancel-button-type": "text",
@@ -91,41 +91,41 @@ const V = (e, t) => {
     "confirm-button-type": "danger",
     onConfirm: () => t(p)
   }, {
-    reference: () => y(B, {
+    reference: () => b(B, {
       type: "danger",
       link: !0
-    }, D(i) ? i : {
+    }, q(i) ? i : {
       default: () => [i]
     })
-  }) : y(B, {
-    type: l,
+  }) : b(B, {
+    type: s,
     link: !0,
     onClick: () => t(p)
-  }, D(i) ? i : {
+  }, q(i) ? i : {
     default: () => [i]
   });
 };
 function Z(e) {
   let t = 0;
-  return Array.from(e).forEach((l) => {
-    l.charCodeAt(0) > 255 ? t += 2 : t += 1;
+  return Array.from(e).forEach((s) => {
+    s.charCodeAt(0) > 255 ? t += 2 : t += 1;
   }), t;
 }
-const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
-  name: L,
-  props: _,
+const D = "ry-json-table", L = "InnerOptColumn", E = /* @__PURE__ */ R({
+  name: D,
+  props: I,
   setup(e, t) {
-    const l = h(() => ({
+    const s = y(() => ({
       align: "center",
       columnConfig: {
         resizable: !0
       },
       loading: e.tableLoading
-    })), p = h(() => ({
+    })), p = y(() => ({
       isHover: !0,
       useKey: !0,
       keyField: e.rowKey || "_X_ROW_KEY"
-    })), n = A(), i = () => n.value;
+    })), n = x(), i = () => n.value;
     t.expose({
       getXTableRef: i
     });
@@ -137,9 +137,9 @@ const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
         m.currentPage = o.currentPage, m.pageSize = o.pageSize;
       }
       t.emit("page-change", o);
-    }, u = h(() => ({
+    }, u = y(() => ({
       ...e.pageInfo
-    })), F = () => y(K("vxe-pager"), {
+    })), _ = () => b(K("vxe-pager"), {
       layouts: [
         "Total",
         "Sizes",
@@ -158,18 +158,18 @@ const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
       "onUpdate:page-size": (o) => u.value.pageSize = o,
       total: u.value.total,
       onPageChange: d
-    }, null), k = h(() => {
+    }, null), F = y(() => {
       const {
         schema: o,
         uiSchema: m,
-        showIndex: b,
+        showIndex: w,
         selectionType: C
       } = e, c = [];
       C === "checkbox" && c.push({
         type: "checkbox",
         width: 50,
         fixed: "left"
-      }), b && c.push({
+      }), w && c.push({
         type: "seq",
         width: 50,
         fixed: "left",
@@ -182,45 +182,47 @@ const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
       Object.keys(o.properties).forEach((f) => {
         const r = o.properties[f];
         r.prop = r.prop || f;
-        const S = m[f] || {}, E = S[G] || {}, s = {
+        const S = m[f] || {}, g = S[G] || {}, a = {
           field: r.prop,
           title: r.description || r.prop,
           headerAlign: "center",
           align: "center",
           showOverflow: !0,
-          ...E
+          ...g
         };
-        if (S[q])
-          s.width = S[q];
+        if (S[W])
+          a.width = S[W];
         else if (e.columnWidth === "auto") {
-          if (r.description) {
-            let a = Z(r.description) * 20;
-            a < 100 && (a = 100), s.minWidth = a < 100 ? 100 : a;
+          if (g.minWidth && g.minWidth !== "auto")
+            a.minWidth = g.minWidth;
+          else if (r.description) {
+            let l = Z(r.description) * 20;
+            l < 100 && (l = 100), a.minWidth = l < 100 ? 100 : l;
           }
         } else
-          e.columnWidth && (f.includes("Time") || f.includes("Date") ? s.width = 200 : s.width = e.columnWidth);
-        if (t.slots[f] && (s.slots = {
+          e.columnWidth && (f.includes("Time") || f.includes("Date") ? a.width = 200 : a.width = e.columnWidth);
+        if (t.slots[f] && (a.slots = {
           default: f
         }), r.format)
           switch (r.format) {
             case "date-time":
-              s.formatter = N;
+              a.formatter = N;
               break;
           }
-        E.formatter && typeof E.formatter == "function" ? s.formatter = E.formatter : r.oneOf ? s.formatter = ({
-          cellValue: a
+        g.formatter && typeof g.formatter == "function" ? a.formatter = g.formatter : r.oneOf ? a.formatter = ({
+          cellValue: l
         }) => {
-          const g = r.oneOf.find((P) => P.const === a);
-          return (g == null ? void 0 : g.title) || a;
-        } : r.anyOf && (s.formatter = ({
-          cellValue: a
+          const h = r.oneOf.find((P) => P.const === l);
+          return (h == null ? void 0 : h.title) || l;
+        } : r.anyOf && (a.formatter = ({
+          cellValue: l
         }) => {
-          let g = [];
-          return typeof a == "string" ? g = a.split(",") : g = a, g.map((P) => {
+          let h = [];
+          return typeof l == "string" ? h = l.split(",") : h = l, h.map((P) => {
             const T = r.anyOf.find((U) => U.const === P);
             return (T == null ? void 0 : T.title) || P;
           }).join(",");
-        }), c.push(s);
+        }), c.push(a);
       });
       const {
         rowBtnList: M
@@ -231,34 +233,34 @@ const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
         align: "center",
         title: "操作",
         slots: {
-          default: R
+          default: L
         }
       }), c;
-    }), W = ({
+    }), k = ({
       row: o
     }) => {
       const {
         rowBtnList: m
       } = e;
-      let b = [];
-      typeof m == "function" ? b = m(o) : b = m;
+      let w = [];
+      typeof m == "function" ? w = m(o) : w = m;
       const C = (c) => {
         t.emit("row-btn-click", c, o);
       };
-      return b.map((c) => V(c, C));
+      return w.map((c) => V(c, C));
     }, O = () => {
       n.value && t.emit("row-selected", n.value.getCheckboxRecords());
     }, j = {
       ...t.slots,
-      [R]: W,
-      pager: e.showPager ? F : null
-    }, z = h(() => e.model || []);
-    return () => y("div", {
-      class: L
-    }, [y(J, I(t.attrs, {
+      [L]: k,
+      pager: e.showPager ? _ : null
+    }, z = y(() => e.model || []);
+    return () => b("div", {
+      class: D
+    }, [b(J, A(t.attrs, {
       ref: n
-    }, l.value, {
-      columns: k.value,
+    }, s.value, {
+      columns: F.value,
       data: z.value,
       height: "auto",
       rowConfig: p.value,
@@ -267,14 +269,14 @@ const L = "ry-json-table", R = "InnerOptColumn", w = /* @__PURE__ */ x({
     }), j)]);
   }
 });
-w.install = (e) => {
-  e.component(w.name, w);
+E.install = (e) => {
+  e.component(E.name, E);
 };
-const ee = "ry-pro-table", v = /* @__PURE__ */ x({
+const ee = "ry-pro-table", v = /* @__PURE__ */ R({
   name: ee,
   props: Q,
   setup(e, t) {
-    const l = A(), p = h(() => {
+    const s = x(), p = y(() => {
       if (!e.fields)
         return e.schema;
       const d = {};
@@ -284,16 +286,16 @@ const ee = "ry-pro-table", v = /* @__PURE__ */ x({
         ...e.schema,
         properties: d
       };
-    }), n = h(() => {
+    }), n = y(() => {
       const d = {
         ...e
       };
       return delete d.fields, d;
-    }), i = () => l.value && l.value.getXTableRef();
+    }), i = () => s.value && s.value.getXTableRef();
     return t.expose({
       getXTableRef: i
-    }), () => y(w, I({
-      ref: l
+    }), () => b(E, A({
+      ref: s
     }, n.value, {
       schema: p.value
     }), t.slots);
@@ -315,7 +317,7 @@ const le = (e) => ({
 }), se = [
   { key: "DEFAULT_EDIT", title: "编辑", type: "primary", flag: "EDIT" },
   { key: "DEFAULT_DEL", title: "删除", type: "danger", flag: "DEL" }
-], te = [w, v], ne = (e) => {
+], te = [E, v], ne = (e) => {
   te.forEach((t) => {
     e.component(t.name, t);
   });
@@ -324,9 +326,9 @@ const le = (e) => ({
 };
 export {
   se as DEFAULT_ROW_BTN_LIST,
-  w as JsonTable,
+  E as JsonTable,
   v as ProTable,
-  _ as basicTableProps,
+  I as basicTableProps,
   le as bindEvent,
   ue as default,
   ne as install,
