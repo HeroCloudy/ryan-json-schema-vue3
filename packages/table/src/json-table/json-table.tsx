@@ -132,7 +132,8 @@ const JsonTable = defineComponent({
             }
             target.minWidth = defaultMinWidth < 100 ? 100 : defaultMinWidth
           }
-        } else if (props.columnWidth) {
+        }
+        if (props.columnWidth) {
           if (k.includes('Time') || k.includes('Date')) {
             target.width = 200
           } else {

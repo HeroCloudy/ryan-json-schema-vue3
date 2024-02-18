@@ -199,9 +199,8 @@ const D = "ry-json-table", L = "InnerOptColumn", E = /* @__PURE__ */ R({
             let l = Z(r.description) * 20;
             l < 100 && (l = 100), a.minWidth = l < 100 ? 100 : l;
           }
-        } else
-          e.columnWidth && (f.includes("Time") || f.includes("Date") ? a.width = 200 : a.width = e.columnWidth);
-        if (t.slots[f] && (a.slots = {
+        }
+        if (e.columnWidth && (f.includes("Time") || f.includes("Date") ? a.width = 200 : a.width = e.columnWidth), t.slots[f] && (a.slots = {
           default: f
         }), r.format)
           switch (r.format) {
