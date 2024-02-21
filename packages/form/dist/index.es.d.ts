@@ -205,9 +205,9 @@ export declare const JsonForm: DefineComponent<{
         readonly default: () => {};
     };
 }>>, {
+    readonly uiSchema: UiSchema;
     readonly column: number;
     readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
-    readonly uiSchema: UiSchema;
 }, {}>;
 
 export declare const JsonFormDescription: DefineComponent<{

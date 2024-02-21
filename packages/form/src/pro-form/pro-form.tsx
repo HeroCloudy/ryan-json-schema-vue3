@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref } from 'vue'
 import { proFormProps } from '../common/props'
 import type { SchemaItem } from '@ryan-json-schema-vue3/utils'
-import { bindEvent, bindMethod } from '../common/bind'
+import { bindMethod } from '../common/bind'
 import JsonForm from '../json-form'
 
 const NAME = 'ry-pro-form'
@@ -51,7 +51,6 @@ const ProForm = defineComponent({
         {...innerProps.value}
         schema={innerSchema.value}
         v-slots={context.slots}
-        {...bindEvent(context, props.model)}
       ></JsonForm>
     )
   }

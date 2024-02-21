@@ -5,13 +5,13 @@
  @time: 2024/1/19 17:34
 -->
 <template>
-  <ry-json-form
+  <ry-pro-form
     :schema="schema"
     :ui-schema="uiSchema"
     :model="model"
-    :column="2"
+    :column="3"
     @data-change="onDataChange"
-  ></ry-json-form>
+  ></ry-pro-form>
 
   <pre style="font-size: 12px; line-height: 16px">{{ JSON.stringify(model, null, 2) }}</pre>
 </template>
@@ -73,6 +73,7 @@ uiSchema.value.endDate = {
 }
 
 const onDataChange = (key: string, value: any, formData: Record<string, any>) => {
+  console.log(key, value, formData)
   if (key === 'beginDate') {
     begin.value = value
   } else if (key === 'endDate') {
