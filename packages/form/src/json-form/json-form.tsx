@@ -98,7 +98,7 @@ const JsonForm = defineComponent({
 
     return () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { schema, uiSchema, model, column, rules, ...restProps } = props
+      const { schema, uiSchema, model, column, rules, labelPosition, ...restProps } = props
       return (
         <div className={NAME}>
           <ElForm
@@ -108,6 +108,7 @@ const JsonForm = defineComponent({
             rules={innerRules.value}
             labelWidth="auto"
             onSubmit={onSubmit}
+            labelPosition={labelPosition}
           >
             <ElRow gutter={20}>{renderForm()}</ElRow>
           </ElForm>

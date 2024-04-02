@@ -17,6 +17,11 @@ export const basicFormProps = {
     type: Object as PropType<FormRules>,
     required: false,
     default: () => ({})
+  },
+  labelPosition: {
+    type: String as PropType<'left' | 'right' | 'top'>,
+    required: false,
+    default: 'right'
   }
 } as const
 

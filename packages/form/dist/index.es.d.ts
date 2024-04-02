@@ -66,6 +66,11 @@ export declare const basicFormProps: {
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -171,6 +176,11 @@ export declare const JsonForm: DefineComponent<{
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -195,6 +205,11 @@ export declare const JsonForm: DefineComponent<{
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -208,6 +223,7 @@ export declare const JsonForm: DefineComponent<{
     readonly uiSchema: UiSchema;
     readonly column: number;
     readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
+    readonly labelPosition: "top" | "right" | "left";
 }, {}>;
 
 export declare const JsonFormDescription: DefineComponent<{
@@ -255,6 +271,11 @@ export declare const JsonFormDescription: DefineComponent<{
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
 }, () => any, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, PublicProps, Readonly<ExtractPropTypes<{
     readonly readMode: {
         readonly type: BooleanConstructor;
@@ -300,6 +321,11 @@ export declare const JsonFormDescription: DefineComponent<{
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
 }>>, {
     readonly uiSchema: UiSchema;
     readonly column: number;
@@ -307,6 +333,7 @@ export declare const JsonFormDescription: DefineComponent<{
     readonly size: string;
     readonly border: boolean;
     readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
+    readonly labelPosition: "top" | "right" | "left";
 }, {}>;
 
 export declare const jsonFormDescriptionProps: {
@@ -353,6 +380,11 @@ export declare const jsonFormDescriptionProps: {
         readonly type: PropType<Partial<Record<string, Arrayable<FormItemRule>>>>;
         readonly required: false;
         readonly default: () => {};
+    };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
     };
 };
 
@@ -489,6 +521,11 @@ export declare const ProForm: DefineComponent<{
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -517,6 +554,11 @@ export declare const ProForm: DefineComponent<{
         readonly required: false;
         readonly default: () => {};
     };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
+    };
     readonly schema: {
         readonly type: PropType<Schema>;
         readonly required: true;
@@ -530,6 +572,7 @@ export declare const ProForm: DefineComponent<{
     readonly uiSchema: UiSchema;
     readonly column: number;
     readonly rules: Partial<Record<string, Arrayable<FormItemRule>>>;
+    readonly labelPosition: "top" | "right" | "left";
 }, {}>;
 
 export declare interface ProFormProp extends BasicFormProp {
@@ -554,6 +597,11 @@ export declare const proFormProps: {
         readonly type: PropType<Partial<Record<string, Arrayable<FormItemRule>>>>;
         readonly required: false;
         readonly default: () => {};
+    };
+    readonly labelPosition: {
+        readonly type: PropType<"top" | "right" | "left">;
+        readonly required: false;
+        readonly default: "right";
     };
     readonly schema: {
         readonly type: PropType<Schema>;
